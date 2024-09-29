@@ -1,0 +1,167 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  margin: 0;
+}
+.hangman-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hangman {
+  height: 20vh;
+  position: relative;
+  width: 400px;
+  height: 500px;
+}
+.base {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 400px;
+  height: 10px;
+  background-color: #000;
+}
+.pillar {
+  position: absolute;
+  bottom: 10px; 
+  left: 100px; 
+  width: 10px;
+  height: 350px;
+  background-color: #000;
+}
+.crossbar {
+  position: absolute;
+  bottom: 350px;
+  left: 100px;
+  width: 175px;
+  height: 10px;
+  background-color: #000;
+}
+.hanger {
+  background-color: #000;
+  position: absolute;
+  top: 140px;
+  left: 275px;
+  width: 1px;
+  height: 30px;
+  border: 5px solid #000;
+}
+
+/* now the stickman */
+.head {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 5px solid black;
+  margin-bottom: 5px;
+  position: absolute;
+  top: 180px;
+  right: 95px;
+}
+
+.body {
+  width: 8px;
+  height: 70px;
+  background-color: black;
+  position: absolute;
+  top: 230px;
+  right: 115px;  
+}
+
+.arm {
+  width: 60px;
+  height: 5px;
+  background-color: black;
+  position: absolute;
+  top: 240px;
+}
+ 
+.left-arm {
+  transform: rotate(45deg);
+  left: 230px;
+}
+
+.right-arm {
+  transform: rotate(-45deg);
+  right: 70px;
+}
+
+.leg {
+  width: 70px;
+  height: 6px;
+  background-color: black;
+  position: absolute;
+  top: 320px;
+}
+
+.left-leg {
+  transform: rotate(45deg);
+  left: 270px;
+}
+
+.right-leg {
+  transform: rotate(-45deg);
+  right: 108px;
+}
+
+/*Letters*/
+.letters{
+  padding: 10px;
+  width: 30vw;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-gap: 5px;
+  justify-content: center;
+}
+.letters button{
+  font-family: monospace;
+  font-size: 1.8rem;
+  font-weight: 700;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  border: 1.5px solid black;
+  cursor: pointer;
+}
+.faded {
+  color: rgba(0, 0, 0, 0.4);
+  border: 1.5px solid rgba(0, 0, 0, 0.4);
+  transition: 300ms ease-in-out;
+}
+
+/*Actual Word*/
+.text{
+  font-family: monospace;
+  font-size: 1.5rem;
+}
+h1{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 400px;
+  min-height: 60px;
+  text-align: center;
+}
+.underline{
+  position: relative;
+  display: inline-block;
+  min-width: 50px;
+  min-height: 20px;
+  margin: 0 5px 0 5px;
+}
+.underline .letter {
+  visibility: hidden; /* Hide the letter but keep its space */
+  display: inline-block;
+}
+.underline::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px; /* Adjust the thickness here */
+  background-color: currentColor; /* Uses the color of the text */
+  bottom: 0;
+  left: 0;
+}
